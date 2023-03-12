@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mock up page</title>
+	<link rel="stylesheet" type="text/css" href="user.css">
+	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="regisPOST.js"></script>
+    <!-- Font awesome is not required provided you change the icon options -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/solid.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/fontawesome.min.js"></script>
+    <!-- end FA -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.2.10/dist/js/tempus-dominus.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.2.10/dist/css/tempus-dominus.css"
+    />
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/JQL.min.js"></script>
+    <script type="text/javascript" src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
+    <link rel="stylesheet" href="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.css">
+    <script type="text/javascript" src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+    <script type="text/javascript" src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/zip.js/zip.js"></script>
+    </head>
+    <body>
+        
+        <div class="box"><!-- #region div box-->
+            <div class="header"><!-- #region div header-->
+                <div class="propic">
+                    <img src="mockup1.png" class="propic">
+                </div>
+                <div class="profile">
+                    <p>ชื่อผู้ใช้</p>
+                    <p id="name" class="nametext">Pongsan</p>
+                </div>
+            </div>
+
+            <div class="content"><!-- #region div content-->
+                <div class="contentHeader">
+                    <p>
+                        สมัครสมาชิก Aurume
+                    </p>
+                </div>
+                <div class=" register">
+                    <div class="inputgroup">
+                        <p>
+                            ชื่อ
+                        </p>
+                        <input type="text" id="fName" required>
+                    </div>
+                    <div class="inputgroup">
+                        <p>
+                            นามสกุล
+                        </p>
+                        <input type="text" id="lName" required>
+                    </div>
+                    <div class="inputgroup">
+                        <p>
+                            วัน/เดือน/ปี เวลา เกิด
+                        </p>
+                        <input type="text" id="datetimepicker1" readonly required>
+                        <script src="tempusCalendar.js"></script>
+                    </div>
+                    <div class="inputgroup">
+                        <p>
+                            เบอร์โทรศัพท์
+                        </p>
+                        <input type="text" id="tel" required>
+                    </div>
+                    <div class="inputgroup">
+                        <p>
+                            อีเมลล์
+                        </p>
+                        <input type="text" id="mail" required>
+                    </div>
+                    <div class="inputgroup">
+                        <p>
+                            ที่อยู่ บ้านเลขที่ ตึก ซอย หมู่บ้าน
+                        </p>
+                        <input type="text" id="addrMain" required>
+                    </div>
+                    <div class="inputgroup">
+                        <p>
+                            ค้นหา ตำบล อำเภอ จังหวัด
+                        </p>
+                        <input type="text" id="addrSearch" style="border-radius: 15px; flex-grow: 1;flex-shrink: 0;min-width: 250px;width: 98%;" required>
+                        <script type="text/javascript">
+                        $.Thailand({
+                            database: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/database/db.json', 
+                            $search: $('#addrSearch'),
+                
+                            onDataFill: function(data){
+                                console.log(data)
+                                var html = data.district + ' ' + data.amphoe + ' จังหวัด' + data.province + ' ' + data.zipcode;
+                                $('#addr').val(html);
+                            }
+                
+                        });
+                    </script>
+                    </div>
+                    <div class="inputgroup">
+                        <p>
+                            ผลการค้นหา
+                        </p>
+                        <input type="text" id="addr" required readonly>
+                    </div>
+                    <div class="ign">
+                        <p>ข้อมูลเพิ่มเติม</p>
+                        <input type="checkbox" id="twin" >
+                        <label for="twin">คุณเป็นฝาแฝดหรือไม่</label>
+                        <br>
+                        <input type="checkbox" id="oldertwin" >
+                        <label for="oldertwin">คุณเป็นแฝดคนพี่</label>
+                        <br>
+                        <input type="checkbox" id="medtwin" >
+                        <label for="medtwin">คุณกำเนิดจากวิธีทางการแพทย์</label>
+                    </div>
+                    <div class="disclamer">
+                        <p>
+                            การกดปุ่มลงทะเบียนหมายถึงคุณได้อ่านและยอมรับ<a href="./eula.html">เงื่อนไขในการให้บริการ</a>และยิมยอมให้ทางเราเก็บข้อมูล เพื่อใช้ในการให้บริการต่าง ๆ ในเครือ
+                        </p>
+                    </div>
+                    
+                        <button class="submit">ลงทะเบียน</button>
+                    
+                </div>
+                
+            </div>
+
+            <div class="footer"><!-- #region div footer-->
+                <p>Aurume LIFF</p>
+            </div>
+        </div>
+        
+    </body>
+</html>
